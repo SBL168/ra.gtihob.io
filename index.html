@@ -328,6 +328,37 @@
             color: #ff6b6b;
             font-size: 14px;
         }
+
+        /* RA Animation */
+        .ra-jump {
+            display: inline-block;
+            animation: raJump 0s ease-in-out infinite;
+            transform-origin: bottom center;
+        }
+
+        @keyframes raJump {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg) scale(1);
+            }
+            15% {
+                transform: translateY(-10px) rotate(5deg) scale(1.1);
+            }
+             30% {
+                transform: translateY(5px) rotate(-3deg) scale(0.95);
+            }
+            45% {
+                transform: translateY(-15px) rotate(8deg) scale(1.15);
+            }
+            60% {
+                transform: translateY(3px) rotate(-5deg) scale(0.98);
+            }
+            75% {
+                transform: translateY(-20px) rotate(10deg) scale(1.2);
+            }
+            90% {
+                transform: translateY(2px) rotate(-2deg) scale(1);
+            }
+        }
     </style>
 </head>
 <body>
@@ -335,7 +366,7 @@
         <div class="valentine-card" id="card">
             <div class="valentine-inner" id="inner">
                 <div class="front" id="front">
-                    <h1>For you especially. sea makara ❤️</h1>
+                    <h1>For you especially. <span class="ra-jump">Sea makara</span>❤️</h1>
                     <p>I have a message that comes straight from my heart...</p>
                     <button id="openBtn">Open My Heart</button>
                 </div>
@@ -507,10 +538,10 @@
             
             // Set content based on type
             const types = {
-                heart: isSad ? ['💔', '😢', '😔', '🥀'] : ['❤️', '🧡', '💛', '💚', '💙', '💜', '💖', '💘', '💝'],
-                flower: ['🌸', '🌹', '🌺', '🌻', '🌼', '🌷', '💐', '🏵️'],
-                firework: ['✨', '🎇', '🎆', '💥', '🎉', '🎊', '💫', '🌟'],
-                sparkle: ['✨', '❄️', '⚡', '⭐', '🌟']
+                heart: isSad ? ['💔','ra', '😢', '😔', 'ra','🥀'] : ['❤️', '🧡', '💛', '💚', '💙', '💜', '💖', '💘', '💝'],
+                flower: ['🌸', '🌹', '🌺', '🌻','ra', '🌼', 'ra','🌷', '💐', '🏵️'],
+                firework: ['✨', '🎇', '🎆','ra', '💥', '🎉', '🎊', '💫', '🌟'],
+                sparkle: ['✨', '❄️', 'ra','⚡', '⭐','ra', '🌟']
             };
             
             element.innerHTML = types[type][Math.floor(Math.random() * types[type].length)];
